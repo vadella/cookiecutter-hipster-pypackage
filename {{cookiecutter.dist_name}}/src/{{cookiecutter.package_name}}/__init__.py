@@ -1,3 +1,3 @@
 """{{cookiecutter.project_short_description}}"""
+from _version import __version__
 
-__version__ = "0.0.0"

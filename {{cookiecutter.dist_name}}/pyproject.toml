@@ -19,6 +19,27 @@ requires = [
 ]
 
 [tool.flit.metadata.requires-extra]
+test = [
+    "pytest"
+]
+doc = [
+    "sphinx"
+]
+dev = [
+    "dunamai",
+    "mypy",
+]
+
+[tool.black]
+line-length = 79
+
 
 [tool.flit.metadata.urls]
 Documentation = "{{cookiecutter.docs_url}}"
+
+[tools.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 79
