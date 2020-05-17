@@ -17,7 +17,7 @@ from {{cookiecutter.package_name}} import __version__ as module_version
 
 # -- Project information -----------------------------------------------------
 
-project = 'inmation_terumo'
+project = '{{cookiecutter.package_name}}'
 copyright = '2020, {{cookiecutter.full_name}}'
 author = "{{cookiecutter.full_name}}"
 

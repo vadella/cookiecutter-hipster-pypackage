@@ -1,0 +1,47 @@
+{% set data = load_setup_py_data() %}
+{% set version = data.get('version')  %}
+
+
+package:
+  name: {{cookiecutter.package_name}}
+  version: {{ version }}
+
+source:
+  path: .
+
+build:
+  noarch: python
+  number: {{ GIT_DESCRIBE_NUMBER }}
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+  include_recipe: False
+
+# Specifying `python` as a top-level build requirements to force conda to
+# render the recipe correctly
+requirements:
+  host:
+    - python >=3.7
+  test:
+    - pytest
+
+test:
+  source_files:
+    - tests/*
+  requires:
+    - pytest
+
+  imports:
+    - {{cookiecutter.package_name}}
+
+  commands:
+    - pytest tests/
+
+  outputs:
+  - name: {{cookiecutter.package_name}}
+    files:
+      - src/*.py
+      - docs/src
+      - test
+
+extra:
+  channels:
+    - conda-forge

@@ -1,37 +1,15 @@
 [build-system]
-requires = ["flit_core >=2,<3"]
-build-backend = "flit_core.buildapi"
+requires = ["setuptools>=34.4", "wheel", "versioneer"]
+build-backend = "setuptools.build_meta"
 
-[tool.flit.metadata]
-module = "{{cookiecutter.package_name}}"
-dist-name = "{{cookiecutter.dist_name}}"
-author = "{{cookiecutter.full_name}}"
-author-email = "{{cookiecutter.email}}"
-classifiers = [
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3 :: Only",
-]
-description-file = "README.md"
-requires-python = ">=3.7"
-requires = [
-]
-
-[tool.flit.metadata.requires-extra]
-test = [
-    "pytest"
-]
-doc = [
-    "sphinx"
-]
-dev = [
-    "dunamai",
-    "mypy",
-]
+[metadata]
+name = {{cookiecutter.project_name}}
+description = {{cookiecutter.project_short_description}}
+author = {{cookiecutter.full_name}}
+author_email = {{cookiecutter.email}}
 
 [tool.black]
 line-length = 79
-
 
 [tools.isort]
 multi_line_output = 3
